@@ -1,0 +1,9 @@
+{
+  "name": "morpho-yield-optimizer",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node --env-file=.env morpho-yield-agent.js"
+  }
+}
