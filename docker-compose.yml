@@ -3,3 +3,11 @@ services:
     build: .
     env_file: .env
     restart: unless-stopped
+    volumes:
+      # Share the host's waap-cli session so the agent can sign without
+      # logging in inside the container. Run `waap-cli login` on the host
+      # first; the keyshare is then visible to the container.
+      - ${HOME}/.waap-cli:/root/.waap-cli
+      # Persist structured event logs to the host so a separate dashboard
+      # process can read them.
+      - ./logs:/app/logs
